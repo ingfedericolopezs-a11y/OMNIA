@@ -212,7 +212,7 @@
       </div>
       <div class="anim-fade-in anim-delay-2">
         <div class="plan-visual-card">
-          <span class="plan-big-icon">🚀</span>
+          <div class="plan-big-icon"><i data-lucide="rocket"></i></div>
           <h3 style="color:var(--white);">OMNIA <span class="text-blue">Grow</span></h3>
           <p class="plan-visual-quote">
             "El crecimiento sostenible es el resultado de aplicar inteligencia con propósito."
@@ -246,7 +246,7 @@
     <div class="detail-grid">
 
       <div class="detail-box reveal">
-        <h3><span>🎯</span> Alcance</h3>
+        <h3><i data-lucide="target" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Alcance</h3>
         <div class="includes-banner">
           <span>✅</span>
           <p>Incluye todo lo de <strong>OMNIA Optimize</strong>, más:</p>
@@ -261,30 +261,30 @@
       </div>
 
       <div class="detail-box reveal anim-delay-1">
-        <h3><span>✨</span> Beneficios</h3>
+        <h3><i data-lucide="star" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Beneficios</h3>
         <div class="benefit-item">
-          <div class="benefit-icon">📐</div>
+          <div class="benefit-icon"><i data-lucide="maximize-2"></i></div>
           <div>
             <strong>Mayor escalabilidad</strong>
             <p>Soluciones diseñadas para crecer junto con tu empresa.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🧠</div>
+          <div class="benefit-icon"><i data-lucide="cpu"></i></div>
           <div>
             <strong>Procesos más inteligentes</strong>
             <p>IA aplicada directamente a los flujos operativos del negocio.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔧</div>
+          <div class="benefit-icon"><i data-lucide="wrench"></i></div>
           <div>
             <strong>Tecnología adaptada al negocio</strong>
             <p>Herramientas construidas específicamente para tus necesidades.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🌱</div>
+          <div class="benefit-icon"><i data-lucide="trending-up"></i></div>
           <div>
             <strong>Crecimiento sostenible</strong>
             <p>Capacidades tecnológicas que evolucionan con la organización.</p>
@@ -302,17 +302,17 @@
       </div>
       <div class="custom-solutions">
         <div class="solution-item reveal">
-          <span class="solution-icon">🤖</span>
+          <div class="solution-icon"><i data-lucide="cpu"></i></div>
           <h4>IA Aplicada</h4>
           <p>Modelos de inteligencia artificial integrados en los procesos clave del negocio.</p>
         </div>
         <div class="solution-item reveal anim-delay-1">
-          <span class="solution-icon">📱</span>
+          <div class="solution-icon"><i data-lucide="smartphone"></i></div>
           <h4>Apps a medida</h4>
           <p>Aplicaciones personalizadas diseñadas para las necesidades específicas de tu equipo.</p>
         </div>
         <div class="solution-item reveal anim-delay-2">
-          <span class="solution-icon">🔌</span>
+          <div class="solution-icon"><i data-lucide="plug"></i></div>
           <h4>Integraciones avanzadas</h4>
           <p>Conexión profunda entre todos los sistemas y herramientas de tu ecosistema digital.</p>
         </div>
@@ -394,6 +394,8 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

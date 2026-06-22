@@ -204,7 +204,7 @@
       </div>
       <div class="anim-fade-in anim-delay-2">
         <div class="plan-visual-card">
-          <span class="plan-big-icon">📊</span>
+          <div class="plan-big-icon"><i data-lucide="bar-chart-2"></i></div>
           <h3 style="color:var(--white);">OMNIA <span class="text-blue">Discover</span></h3>
           <p class="plan-visual-quote">
             "La inteligencia comienza con la capacidad de comprender lo que ocurre en tu empresa."
@@ -237,7 +237,7 @@
     <div class="detail-grid">
 
       <div class="detail-box reveal">
-        <h3><span>🎯</span> Alcance</h3>
+        <h3><i data-lucide="target" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Alcance</h3>
         <ul class="feature-list">
           <li>Dashboards personalizados</li>
           <li>Indicadores estratégicos</li>
@@ -248,30 +248,30 @@
       </div>
 
       <div class="detail-box reveal anim-delay-1">
-        <h3><span>✨</span> Beneficios</h3>
+        <h3><i data-lucide="star" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Beneficios</h3>
         <div class="benefit-item">
-          <div class="benefit-icon">👁️</div>
+          <div class="benefit-icon"><i data-lucide="eye"></i></div>
           <div>
             <strong>Mayor visibilidad del negocio</strong>
             <p>Entiende en tiempo real qué está pasando en cada área de tu empresa.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🧠</div>
+          <div class="benefit-icon"><i data-lucide="activity"></i></div>
           <div>
             <strong>Decisiones más informadas</strong>
             <p>Reemplaza la intuición por datos concretos y confiables.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🎛️</div>
+          <div class="benefit-icon"><i data-lucide="sliders"></i></div>
           <div>
             <strong>Control sobre la operación</strong>
             <p>Monitorea indicadores clave sin depender de reportes manuales.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🔎</div>
+          <div class="benefit-icon"><i data-lucide="search"></i></div>
           <div>
             <strong>Identificación de oportunidades</strong>
             <p>Detecta áreas de mejora antes de que se conviertan en problemas.</p>
@@ -359,6 +359,8 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

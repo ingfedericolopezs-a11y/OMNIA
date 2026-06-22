@@ -95,7 +95,7 @@
       text-align: center;
       padding: 40px 20px;
     }
-    .form-success .success-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+    .form-success .success-icon { display: block; margin-bottom: 16px; line-height: 0; }
     .form-success h3 { color: var(--blue); margin-bottom: 8px; }
 
     /* ── Info panel ── */
@@ -249,7 +249,9 @@
           </form>
 
           <div class="form-success" id="formSuccess">
-            <span class="success-icon">✅</span>
+            <span class="success-icon">
+              <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><defs><linearGradient id="ck1" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs><circle cx="28" cy="28" r="26" stroke="url(#ck1)" stroke-width="2" opacity="0.3"/><circle cx="28" cy="28" r="20" stroke="url(#ck1)" stroke-width="2"/><polyline points="18,28 25,35 38,21" stroke="url(#ck1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
             <h3>¡Mensaje enviado!</h3>
             <p style="color:var(--white-70);">Nos pondremos en contacto contigo en menos de 24 horas. Mientras tanto, puedes explorar nuestros planes.</p>
             <a href="planes.html" class="btn btn-outline" style="margin-top:20px;">Ver planes</a>
@@ -304,7 +306,9 @@
           <div class="plan-quick-links">
             <a href="discover.html" class="plan-quick-link">
               <div class="plan-quick-link-left">
-                <div class="plan-quick-icon">📊</div>
+                <div class="plan-quick-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="qi1" x1="0" y1="0" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs><rect x="2" y="12" width="3.5" height="8" rx="1" fill="url(#qi1)" opacity="0.45"/><rect x="7" y="8" width="3.5" height="12" rx="1" fill="url(#qi1)" opacity="0.65"/><rect x="12" y="4" width="3.5" height="16" rx="1" fill="url(#qi1)" opacity="0.85"/><rect x="17" y="1" width="3" height="19" rx="1" fill="url(#qi1)"/><polyline points="3.5,11 9,6 14,2 19,0" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
                 <div>
                   <div class="plan-quick-name">OMNIA Discover</div>
                   <div class="plan-quick-price">$1.490.000 / mes</div>
@@ -314,7 +318,9 @@
             </a>
             <a href="optimize.html" class="plan-quick-link">
               <div class="plan-quick-link-left">
-                <div class="plan-quick-icon">⚡</div>
+                <div class="plan-quick-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="qi2" x1="0" y1="0" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs><circle cx="11" cy="11" r="9.5" stroke="url(#qi2)" stroke-width="1.5" opacity="0.25"/><circle cx="11" cy="11" r="6" stroke="url(#qi2)" stroke-width="1.5" opacity="0.55"/><circle cx="11" cy="11" r="2.5" fill="url(#qi2)"/><line x1="11" y1="1.5" x2="11" y2="3" stroke="url(#qi2)" stroke-width="1.7" stroke-linecap="round"/><line x1="11" y1="19" x2="11" y2="20.5" stroke="url(#qi2)" stroke-width="1.7" stroke-linecap="round"/><line x1="1.5" y1="11" x2="3" y2="11" stroke="url(#qi2)" stroke-width="1.7" stroke-linecap="round"/><line x1="19" y1="11" x2="20.5" y2="11" stroke="url(#qi2)" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </div>
                 <div>
                   <div class="plan-quick-name">OMNIA Optimize</div>
                   <div class="plan-quick-price">$2.490.000 / mes</div>
@@ -324,7 +330,9 @@
             </a>
             <a href="grow.html" class="plan-quick-link">
               <div class="plan-quick-link-left">
-                <div class="plan-quick-icon">🚀</div>
+                <div class="plan-quick-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="qi3" x1="0" y1="22" x2="22" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0288d1"/><stop offset="100%" stop-color="#29b6f6"/></linearGradient></defs><path d="M4 19 Q8 14 14 8" stroke="url(#qi3)" stroke-width="1.2" stroke-dasharray="2 3" stroke-linecap="round" opacity="0.5"/><path d="M14 8 L21 1 L22 5 L18 9 Z" fill="url(#qi3)"/><path d="M14 8 L15 11 L12 12 L10 9 Z" fill="#0077b6" opacity="0.8"/><path d="M12 12 L9 16" stroke="url(#qi3)" stroke-width="2" stroke-linecap="round" opacity="0.55"/><circle cx="18" cy="4" r="1.5" fill="white" opacity="0.9"/></svg>
+                </div>
                 <div>
                   <div class="plan-quick-name">OMNIA Grow</div>
                   <div class="plan-quick-price">Desde $3.990.000 / mes</div>
@@ -373,7 +381,9 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();

@@ -490,6 +490,83 @@ footer {
   z-index: 0;
 }
 
+/* ── Lucide icons (small utility use) ── */
+[data-lucide] {
+  display: block;
+  stroke: var(--blue);
+  stroke-width: 1.75;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-box [data-lucide]             { width: 26px; height: 26px; }
+.fw-list-icon [data-lucide]         { width: 18px; height: 18px; }
+.benefit-icon [data-lucide]         { width: 20px; height: 20px; }
+.consequence-icon-box [data-lucide] { width: 22px; height: 22px; }
+.about-float-icon [data-lucide]     { width: 22px; height: 22px; }
+.step-num [data-lucide]             { width: 18px; height: 18px; stroke: #fff; }
+
+/* ── Custom AI icon boxes ── */
+.ai-icon-box {
+  width: 92px;
+  height: 92px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(41,182,246,0.12) 0%, rgba(2,136,209,0.06) 100%);
+  border: 1px solid rgba(41,182,246,0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  transition: all 0.35s ease;
+}
+.ai-icon-box::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 23px;
+  background: linear-gradient(135deg, rgba(41,182,246,0.4), transparent 60%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.ai-icon-box:hover,
+.extension-item:hover .ai-icon-box,
+.plan-step:hover .ai-icon-box {
+  box-shadow: 0 0 32px rgba(41,182,246,0.30), 0 0 64px rgba(41,182,246,0.10);
+  border-color: rgba(41,182,246,0.55);
+  transform: translateY(-2px);
+}
+.ai-icon-box:hover::after,
+.extension-item:hover .ai-icon-box::after {
+  opacity: 1;
+}
+.ai-icon-box svg { width: 46px; height: 46px; }
+
+/* Process step icon — framework */
+.ps-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(41,182,246,0.08);
+  border: 1px solid rgba(41,182,246,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  position: relative;
+  transition: all 0.3s;
+}
+.ps-icon-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 28px;
+  border: 1px solid rgba(41,182,246,0.12);
+  animation: rotateSlow 12s linear infinite;
+}
+.ps-icon-wrap svg { width: 40px; height: 40px; }
+
 /* ── Animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(32px); }

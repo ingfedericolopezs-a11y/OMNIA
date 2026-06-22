@@ -203,7 +203,7 @@
       </div>
       <div class="anim-fade-in anim-delay-2">
         <div class="plan-visual-card">
-          <span class="plan-big-icon">⚡</span>
+          <div class="plan-big-icon"><i data-lucide="zap"></i></div>
           <h3 style="color:var(--white);">OMNIA <span class="text-blue">Optimize</span></h3>
           <p class="plan-visual-quote">
             "La eficiencia no consiste en trabajar más, sino en trabajar mejor."
@@ -237,7 +237,7 @@
     <div class="detail-grid">
 
       <div class="detail-box reveal">
-        <h3><span>🎯</span> Alcance</h3>
+        <h3><i data-lucide="target" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Alcance</h3>
         <div class="includes-banner">
           <span>✅</span>
           <p>Incluye todo lo de <strong>OMNIA Discover</strong>, más:</p>
@@ -252,30 +252,30 @@
       </div>
 
       <div class="detail-box reveal anim-delay-1">
-        <h3><span>✨</span> Beneficios</h3>
+        <h3><i data-lucide="star" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--blue);"></i> Beneficios</h3>
         <div class="benefit-item">
-          <div class="benefit-icon">⚡</div>
+          <div class="benefit-icon"><i data-lucide="zap"></i></div>
           <div>
             <strong>Reducción de tareas manuales</strong>
             <p>Automatizamos procesos repetitivos para liberar tiempo estratégico.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">📈</div>
+          <div class="benefit-icon"><i data-lucide="trending-up"></i></div>
           <div>
             <strong>Mayor productividad</strong>
             <p>El equipo se enfoca en lo que realmente importa para el crecimiento.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🎛️</div>
+          <div class="benefit-icon"><i data-lucide="sliders"></i></div>
           <div>
             <strong>Mejor control operativo</strong>
             <p>Visibilidad completa sobre los procesos con indicadores avanzados.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <div class="benefit-icon">🚀</div>
+          <div class="benefit-icon"><i data-lucide="rocket"></i></div>
           <div>
             <strong>Más tiempo para crecer</strong>
             <p>Operaciones más eficientes que liberan capacidad para la estrategia.</p>
@@ -360,6 +360,8 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

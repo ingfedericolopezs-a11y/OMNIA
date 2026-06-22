@@ -15,49 +15,33 @@
     }
     .about-visual {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
-    .about-ring-wrap {
-      position: relative;
-      width: 340px;
-      height: 340px;
+    .about-visual img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.7) saturate(0.8);
     }
-    .about-ring {
+    .about-visual-overlay {
       position: absolute;
-      border-radius: 50%;
-      border: 1px solid var(--border);
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(11,22,40,0.85) 100%);
     }
-    .about-ring-1 { inset: 0; animation: rotateSlow 25s linear infinite; border-color: rgba(41,182,246,0.22); }
-    .about-ring-2 { inset: 44px; animation: rotateSlow 18s linear infinite reverse; }
-    .about-ring-3 { inset: 88px; animation: rotateSlow 12s linear infinite; border-color: rgba(41,182,246,0.12); }
-    .about-dot {
+    .about-visual-caption {
       position: absolute;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--blue);
-      top: 0; left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 14px var(--blue);
+      bottom: 24px; left: 24px; right: 24px;
     }
-    .about-center {
-      position: absolute;
-      inset: 110px;
-      background: radial-gradient(circle, rgba(41,182,246,0.14) 0%, transparent 70%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: float 5s ease-in-out infinite;
+    .about-visual-caption p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin: 0;
+      line-height: 1.5;
     }
-    .about-center-text {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: -1px;
-    }
-    .about-center-text span { color: var(--blue); }
 
     .belief-card {
       background: var(--navy-card);
@@ -85,18 +69,19 @@
       position: absolute;
       top: -20px; left: 40px;
       font-size: 12rem;
-      color: rgba(41,182,246,0.08);
+      color: rgba(41,182,246,0.06);
       font-family: Georgia, serif;
       line-height: 1;
     }
     .philosophy-text {
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       font-weight: 600;
       color: var(--blue);
       position: relative;
       z-index: 1;
-      line-height: 1.6;
+      line-height: 1.7;
     }
+
     .extension-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -113,9 +98,17 @@
     .extension-item:hover {
       border-color: rgba(41,182,246,0.4);
       transform: translateY(-4px);
+      box-shadow: var(--shadow-blue);
     }
-    .extension-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
-    .extension-item h4 { margin-bottom: 8px; }
+    .extension-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: var(--blue-glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .extension-item h4 { margin-bottom: 8px; font-size: 1.05rem; }
     .extension-item p { font-size: 0.9rem; }
 
     @media (max-width: 900px) {
@@ -124,18 +117,13 @@
       .extension-grid { grid-template-columns: 1fr; }
       .philosophy-block { padding: 40px 24px; }
     }
-    @media (max-width: 640px) {
-      .extension-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-text">OMNI<span>IA</span></span>
-    </a>
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">OMNI<span>IA</span></span></a>
     <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
@@ -180,14 +168,11 @@
           <a href="framework.html" class="btn btn-primary">Conocer el Framework</a>
         </div>
       </div>
-      <div class="about-visual">
-        <div class="about-ring-wrap">
-          <div class="about-ring about-ring-1"><div class="about-dot"></div></div>
-          <div class="about-ring about-ring-2"></div>
-          <div class="about-ring about-ring-3"></div>
-          <div class="about-center">
-            <div class="about-center-text">OMNI<span>IA</span></div>
-          </div>
+      <div class="about-visual reveal">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80&fit=crop" alt="Análisis de datos empresariales" />
+        <div class="about-visual-overlay"></div>
+        <div class="about-visual-caption">
+          <p>"Las mejores decisiones nacen de una comprensión profunda del negocio."</p>
         </div>
       </div>
     </div>
@@ -210,7 +195,7 @@
   </div>
 </section>
 
-<!-- CÓMO SOMOS EXTENSIÓN -->
+<!-- EXTENSIÓN DEL EQUIPO -->
 <section>
   <div class="container">
     <div class="text-center" style="margin-bottom:56px;">
@@ -220,17 +205,57 @@
     </div>
     <div class="extension-grid">
       <div class="extension-item reveal">
-        <span class="extension-icon">📊</span>
+        <div class="ai-icon-box">
+          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="nd1" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+            <rect x="6" y="28" width="6" height="12" rx="2" fill="url(#nd1)" opacity="0.4"/>
+            <rect x="14" y="20" width="6" height="20" rx="2" fill="url(#nd1)" opacity="0.65"/>
+            <rect x="22" y="12" width="6" height="28" rx="2" fill="url(#nd1)" opacity="0.85"/>
+            <rect x="30" y="6" width="6" height="34" rx="2" fill="url(#nd1)"/>
+            <polyline points="9,26 17,17 25,9 33,3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="30,5 33,2 36,5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="33" y1="2" x2="33" y2="9" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <h4>Datos</h4>
         <p>Centralizamos y estructuramos la información para que sea comprensible y accionable.</p>
       </div>
       <div class="extension-item reveal anim-delay-1">
-        <span class="extension-icon">⚡</span>
+        <div class="ai-icon-box">
+          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="nd2" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+            <rect x="5" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+            <rect x="25" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+            <rect x="15" y="32" width="16" height="10" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+            <line x1="21" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="25" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="21" y1="14" x2="23" y2="7" stroke="url(#nd2)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <circle cx="23" cy="6" r="3" fill="url(#nd2)"/>
+            <circle cx="13" cy="20" r="2" fill="url(#nd2)" opacity="0.7"/>
+            <circle cx="33" cy="20" r="2" fill="url(#nd2)" opacity="0.7"/>
+            <circle cx="23" cy="37" r="2" fill="url(#nd2)" opacity="0.7"/>
+          </svg>
+        </div>
         <h4>Procesos</h4>
         <p>Automatizamos y optimizamos flujos de trabajo para liberar el potencial del equipo.</p>
       </div>
       <div class="extension-item reveal anim-delay-2">
-        <span class="extension-icon">🤖</span>
+        <div class="ai-icon-box">
+          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="nd3" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+            <rect x="11" y="11" width="24" height="24" rx="4" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
+            <circle cx="23" cy="23" r="5.5" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
+            <circle cx="23" cy="23" r="2" fill="url(#nd3)"/>
+            <line x1="23" y1="4" x2="23" y2="11" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="35" x2="23" y2="42" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="4" y1="23" x2="11" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="35" y1="23" x2="42" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="23" cy="4" r="2.5" fill="url(#nd3)" opacity="0.6"/>
+            <circle cx="23" cy="42" r="2.5" fill="url(#nd3)" opacity="0.6"/>
+            <circle cx="4" cy="23" r="2.5" fill="url(#nd3)" opacity="0.6"/>
+            <circle cx="42" cy="23" r="2.5" fill="url(#nd3)" opacity="0.6"/>
+          </svg>
+        </div>
         <h4>Tecnología</h4>
         <p>Integramos herramientas e inteligencia artificial adaptadas a cada negocio.</p>
       </div>
@@ -248,17 +273,44 @@
     </div>
     <div class="grid-3">
       <div class="belief-card reveal">
-        <div class="icon-box">💡</div>
+        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="bc1" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+            <path d="M14 3C9 3 5 7 5 12c0 3.3 1.8 6.1 4.5 7.7V22h9v-2.3C21.2 18.1 23 15.3 23 12c0-5-4-9-9-9z" stroke="url(#bc1)" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+            <line x1="9.5" y1="22" x2="18.5" y2="22" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/>
+            <line x1="10.5" y1="25" x2="17.5" y2="25" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/>
+            <line x1="14" y1="7" x2="14" y2="12" stroke="white" stroke-width="1.7" stroke-linecap="round" opacity="0.8"/>
+            <line x1="14" y1="12" x2="17" y2="15" stroke="white" stroke-width="1.7" stroke-linecap="round" opacity="0.8"/>
+          </svg>
+        </div>
         <h4 style="margin-bottom:10px;">La claridad es poder</h4>
         <p style="font-size:0.9rem;">Cuando entiendes tu negocio en profundidad, tomas decisiones con confianza y precisión.</p>
       </div>
       <div class="belief-card reveal anim-delay-1">
-        <div class="icon-box">🎯</div>
+        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="bc2" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+            <circle cx="14" cy="14" r="11" stroke="url(#bc2)" stroke-width="1.7" opacity="0.3"/>
+            <circle cx="14" cy="14" r="7" stroke="url(#bc2)" stroke-width="1.7" opacity="0.6"/>
+            <circle cx="14" cy="14" r="3" fill="url(#bc2)"/>
+            <line x1="14" y1="3" x2="14" y2="5" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="14" y1="23" x2="14" y2="25" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="3" y1="14" x2="5" y2="14" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="23" y1="14" x2="25" y2="14" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <h4 style="margin-bottom:10px;">Inteligencia con propósito</h4>
         <p style="font-size:0.9rem;">La tecnología debe servir a los objetivos del negocio, no al revés.</p>
       </div>
       <div class="belief-card reveal anim-delay-2">
-        <div class="icon-box">🌱</div>
+        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="bc3" x1="0" y1="28" x2="28" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0288d1"/><stop offset="100%" stop-color="#29b6f6"/></linearGradient></defs>
+            <polyline points="3,22 9,14 15,17 22,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="19,7 22,4 25,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="22" y1="4" x2="22" y2="11" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <h4 style="margin-bottom:10px;">Crecimiento sostenible</h4>
         <p style="font-size:0.9rem;">El crecimiento sostenible es el resultado de aplicar inteligencia con propósito.</p>
       </div>
@@ -311,6 +363,8 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
