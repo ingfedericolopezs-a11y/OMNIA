@@ -27,8 +27,8 @@ navLinks?.querySelectorAll('a').forEach(a => {
   });
 })();
 
-// ── Scroll reveal ──
-const revealEls = document.querySelectorAll('.reveal');
+// ── Scroll reveal (includes directional variants) ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
@@ -36,7 +36,7 @@ const io = new IntersectionObserver((entries) => {
       io.unobserve(e.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.10 });
 revealEls.forEach(el => io.observe(el));
 
 // ── Counter animation ──

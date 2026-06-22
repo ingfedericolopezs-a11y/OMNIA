@@ -181,8 +181,8 @@
     <div class="hero-grid">
       <div class="anim-fade-up">
         <div class="hero-eyebrow">Departamento de Inteligencia Empresarial</div>
-        <h1>La <em>Inteligencia</em><br>Detrás de tu<br>Crecimiento</h1>
-        <p class="hero-desc">Convertimos datos, automatización e inteligencia aplicada en decisiones estratégicas que impulsan el crecimiento de tu empresa.</p>
+        <h1>La <em class="gradient-text-anim">Inteligencia</em><br>Detrás de tu<br>Crecimiento</h1>
+        <p class="hero-desc">Convertimos datos, automatización e inteligencia aplicada en <span id="typed-text" class="text-blue"></span></p>
         <div class="hero-actions">
           <a href="planes.html" class="btn btn-primary">Conocer planes</a>
           <a href="nosotros.html" class="btn btn-ghost">¿Cómo trabajamos?</a>
@@ -220,7 +220,7 @@
 </div>
 
 <!-- PROBLEMA -->
-<section class="problem-section">
+<section class="problem-section orb-section">
   <div class="container">
     <div class="problem-grid">
       <div class="problem-img reveal">
@@ -288,7 +288,7 @@
 </section>
 
 <!-- PLANES SIN PRECIOS -->
-<section class="plans-section">
+<section class="plans-section orb-section">
   <div class="container">
     <div class="text-center" style="margin-bottom:64px;">
       <span class="section-label">Nuestros Planes</span>
@@ -297,7 +297,7 @@
       <p class="reveal" style="max-width:580px;margin:0 auto;color:var(--white-70);">Tres niveles de servicio para acompañarte en cada etapa de tu crecimiento empresarial.</p>
     </div>
     <div class="grid-3">
-      <a href="discover.html" class="plan-card-home reveal">
+      <a href="discover.html" class="plan-card-home reveal tilt-card">
         <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop" alt="Dashboard analytics" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 01</div>
@@ -306,7 +306,7 @@
           <span class="plan-card-link">Conocer más →</span>
         </div>
       </a>
-      <a href="optimize.html" class="plan-card-home reveal anim-delay-1">
+      <a href="optimize.html" class="plan-card-home reveal anim-delay-1 tilt-card">
         <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop" alt="Tecnología automatización" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 02</div>
@@ -315,7 +315,7 @@
           <span class="plan-card-link">Conocer más →</span>
         </div>
       </a>
-      <a href="grow.html" class="plan-card-home reveal anim-delay-2">
+      <a href="grow.html" class="plan-card-home reveal anim-delay-2 tilt-card">
         <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" alt="Crecimiento empresarial" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 03</div>
@@ -359,6 +359,53 @@
         </ul>
         <a href="nosotros.html" class="btn btn-outline">Conocer más sobre nosotros</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS / GALERÍA -->
+<section class="orb-section section-gradient-bg" style="padding:80px 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+
+      <!-- Mosaic izquierda -->
+      <div class="img-mosaic reveal-left">
+        <div class="img-mosaic-big">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" alt="Oficina moderna de tecnología" style="height:412px;border-radius:var(--radius);" />
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80&fit=crop" alt="Equipo analizando datos" style="height:200px;" />
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80&fit=crop" alt="Tecnología y datos" style="height:200px;" />
+        </div>
+      </div>
+
+      <!-- Texto derecha -->
+      <div class="reveal-right">
+        <span class="section-label">Por qué OMNIA</span>
+        <h2 style="margin-bottom:16px;">Inteligencia que <span class="gradient-text-anim">genera resultados</span></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:36px;">Nuestro enfoque combina tecnología, datos y acompañamiento humano para construir capacidades empresariales que perduran y escalan.</p>
+
+        <div class="metrics-grid" style="margin-bottom:36px;">
+          <div class="metric-card reveal" style="transition-delay:0.1s;">
+            <div class="metric-val" data-count-animated="95" data-suffix="%">95%</div>
+            <div class="metric-label">Satisfacción clientes</div>
+          </div>
+          <div class="metric-card reveal" style="transition-delay:0.2s;">
+            <div class="metric-val" data-count-animated="3" data-suffix="x">3x</div>
+            <div class="metric-label">ROI promedio</div>
+          </div>
+          <div class="metric-card reveal" style="transition-delay:0.3s;">
+            <div class="metric-val" data-count-animated="48" data-suffix="h">48h</div>
+            <div class="metric-label">De diagnóstico a plan</div>
+          </div>
+        </div>
+
+        <a href="nosotros.html" class="btn btn-outline">Conocer nuestro método →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -414,5 +461,6 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="js/main.js"></script>
 <script>lucide.createIcons();</script>
+<script src="js/effects.js"></script>
 </body>
 </html>
