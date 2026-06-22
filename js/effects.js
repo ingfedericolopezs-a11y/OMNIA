@@ -24,7 +24,7 @@
 
 /* ── 2. Hero neural-network canvas ── */
 (function initHeroCanvas() {
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector('.hero, .page-hero, .plan-detail-hero');
   if (!hero) return;
   const canvas = document.createElement('canvas');
   canvas.id = 'hero-canvas';
