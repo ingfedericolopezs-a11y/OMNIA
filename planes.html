@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planes — OMNIA IA</title>
+  <meta name="description" content="Elige el plan OMNIA que mejor se adapta a tu etapa de crecimiento: Discover, Optimize o Grow." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .plan-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .plan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-blue);
+      border-color: rgba(41,182,246,0.4);
+    }
+    .plan-card.featured {
+      border-color: var(--blue);
+      background: linear-gradient(160deg, #112a4a 0%, #0d1e36 100%);
+      transform: scale(1.02);
+    }
+    .plan-card.featured:hover { transform: scale(1.02) translateY(-6px); }
+    .featured-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: var(--gradient);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+    .plan-header { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    .plan-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+    .plan-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+    .plan-desc { font-size: 0.88rem; color: var(--white-70); line-height: 1.6; }
+    .plan-price-wrap { text-align: center; padding: 8px 0; }
+    .plan-price {
+      font-size: 2.4rem;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .plan-price-from { font-size: 0.85rem; color: var(--white-40); margin-bottom: 4px; }
+    .plan-period { font-size: 0.85rem; color: var(--blue); font-weight: 600; margin-top: 6px; }
+    .plan-features h5 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white-40);
+      margin-bottom: 14px;
+    }
+    .plan-cta { margin-top: auto; }
+    .plan-cta .btn { width: 100%; justify-content: center; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 48px;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 16px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .comparison-table th {
+      background: var(--navy-card);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .comparison-table th:first-child, .comparison-table td:first-child {
+      text-align: left;
+      color: var(--white-70);
+    }
+    .comparison-table tr:hover td { background: rgba(41,182,246,0.03); }
+    .comparison-table .check { color: var(--blue); font-size: 1.1rem; }
+    .comparison-table .dash { color: var(--white-40); }
+    .comparison-table .col-featured { background: rgba(41,182,246,0.04); }
+    .section-table { background: var(--navy-light); }
+    .note {
+      font-size: 0.8rem;
+      color: var(--white-40);
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .plan-card.featured { transform: scale(1); }
+      .plan-card.featured:hover { transform: translateY(-6px); }
+    }
+    @media (max-width: 640px) {
+      .comparison-table { font-size: 0.8rem; }
+      .comparison-table th, .comparison-table td { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">OMNI<span>IA</span></span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Planes y precios</span>
+    <h1 class="anim-fade-up">Un Plan Pensado <span class="text-blue">para Ti</span></h1>
+    <div class="divider center"></div>
+    <p class="anim-fade-up anim-delay-1" style="max-width:600px;margin:0 auto;font-size:1.1rem;">
+      Tres niveles de servicio diseñados para acompañarte en cada etapa de tu crecimiento empresarial.
+    </p>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section>
+  <div class="container">
+    <div class="plans-grid">
+
+      <!-- Discover -->
+      <div class="plan-card reveal">
+        <div class="plan-header">
+          <div class="plan-name">Nivel 01</div>
+          <div class="plan-title">OMNIA Discover</div>
+          <p class="plan-desc">Convertimos datos, automatización e inteligencia aplicada en decisiones estratégicas que impulsan el crecimiento empresarial.</p>
+        </div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">$1.490.000</div>
+          <div class="plan-period">mensual*</div>
+        </div>
+        <div class="plan-features">
+          <h5>Alcance</h5>
+          <ul class="feature-list">
+            <li>Dashboards personalizados</li>
+            <li>Indicadores estratégicos</li>
+            <li>Reportes automáticos</li>
+            <li>Seguimiento del desempeño</li>
+            <li>Acompañamiento y soporte</li>
+          </ul>
+        </div>
+        <div class="plan-cta">
+          <a href="discover.html" class="btn btn-outline">Ver detalles</a>
+        </div>
+      </div>
+
+      <!-- Optimize (featured) -->
+      <div class="plan-card featured reveal anim-delay-1">
+        <div class="featured-badge">Más popular</div>
+        <div class="plan-header">
+          <div class="plan-name">Nivel 02</div>
+          <div class="plan-title">OMNIA Optimize</div>
+          <p class="plan-desc">Diseñamos ecosistemas digitales que fortalecen la presencia, experiencia y crecimiento del negocio.</p>
+        </div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">$2.490.000</div>
+          <div class="plan-period">mensual*</div>
+        </div>
+        <div class="plan-features">
+          <h5>Alcance</h5>
+          <ul class="feature-list">
+            <li>Todo lo incluido en Discover</li>
+            <li>Automatización de procesos</li>
+            <li>Reportes inteligentes</li>
+            <li>Integración de herramientas</li>
+            <li>Indicadores avanzados</li>
+            <li>Acompañamiento continuo</li>
+          </ul>
+        </div>
+        <div class="plan-cta">
+          <a href="optimize.html" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+
+      <!-- Grow -->
+      <div class="plan-card reveal anim-delay-2">
+        <div class="plan-header">
+          <div class="plan-name">Nivel 03</div>
+          <div class="plan-title">OMNIA Grow</div>
+          <p class="plan-desc">Creamos soluciones tecnológicas personalizadas adaptadas a las necesidades y objetivos de cada empresa.</p>
+        </div>
+        <div class="plan-price-wrap">
+          <div class="plan-price-from">Desde</div>
+          <div class="plan-price">$3.990.000</div>
+          <div class="plan-period">mensual*</div>
+        </div>
+        <div class="plan-features">
+          <h5>Alcance</h5>
+          <ul class="feature-list">
+            <li>Todo lo incluido en Optimize</li>
+            <li>Soluciones tecnológicas a medida</li>
+            <li>Integraciones avanzadas</li>
+            <li>Inteligencia artificial aplicada</li>
+            <li>Aplicaciones personalizadas</li>
+            <li>Acompañamiento estratégico</li>
+          </ul>
+        </div>
+        <div class="plan-cta">
+          <a href="grow.html" class="btn btn-outline">Ver detalles</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="note">* Precios expresados en pesos colombianos. IVA no incluido. Consultar condiciones específicas.</p>
+  </div>
+</section>
+
+<!-- TABLA COMPARATIVA -->
+<section class="section-table">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <span class="section-label">Comparativa</span>
+      <h2 class="reveal">Compara los <span class="text-blue">Planes</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Característica</th>
+            <th>Discover</th>
+            <th class="col-featured">Optimize</th>
+            <th>Grow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dashboards personalizados</td>
+            <td><span class="check">✓</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Indicadores estratégicos</td>
+            <td><span class="check">✓</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Reportes automáticos</td>
+            <td><span class="check">✓</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Seguimiento del desempeño</td>
+            <td><span class="check">✓</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Automatización de procesos</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Reportes inteligentes</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Integración de herramientas</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Indicadores avanzados</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Soluciones tecnológicas a medida</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Inteligencia artificial aplicada</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Aplicaciones personalizadas</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Acompañamiento estratégico</td>
+            <td><span class="dash">—</span></td>
+            <td class="col-featured"><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;">
+  <div class="container">
+    <h2 class="reveal">¿No sabes qué plan <span class="text-blue">elegir</span>?</h2>
+    <div class="divider center"></div>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Agenda un diagnóstico gratuito y te ayudamos a identificar el plan que mejor se adapta a tu negocio.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
+      <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Agendar diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">OMNI<span class="text-blue">IA</span></span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">OMNIA Discover</a></li>
+          <li><a href="optimize.html">OMNIA Optimize</a></li>
+          <li><a href="grow.html">OMNIA Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OMNIA IA. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

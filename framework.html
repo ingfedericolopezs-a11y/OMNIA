@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Framework — OMNIA IA</title>
+  <meta name="description" content="Framework OMNIA: Descubre, Conecta, Optimiza y Crece. Diagnóstico, Implementación y Acompañamiento." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .fw-phase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .fw-phase:last-child { border-bottom: none; }
+    .fw-phase.reverse { direction: rtl; }
+    .fw-phase.reverse > * { direction: ltr; }
+    .fw-number {
+      font-size: 7rem;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.25;
+      position: absolute;
+      top: -20px; right: -10px;
+    }
+    .fw-card-wrap { position: relative; }
+    .fw-visual-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .fw-visual-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .fw-big-icon { font-size: 4rem; margin-bottom: 16px; display: block; animation: float 5s ease-in-out infinite; }
+    .fw-visual-card h3 { font-size: 1.6rem; color: var(--blue); }
+
+    .fw-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .fw-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--white-10);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .fw-list li:hover { border-color: rgba(41,182,246,0.35); background: rgba(41,182,246,0.05); }
+    .fw-list-icon {
+      width: 36px; height: 36px; min-width: 36px;
+      border-radius: 8px;
+      background: var(--blue-glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .fw-list li p { font-size: 0.9rem; margin: 0; }
+    .fw-list li strong { font-size: 0.95rem; display: block; margin-bottom: 2px; color: var(--white); }
+
+    .process-banner {
+      background: linear-gradient(135deg, var(--navy-card) 0%, rgba(17,40,80,0.9) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+    }
+    .process-steps-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .ps-item {
+      text-align: center;
+      padding: 0 32px;
+    }
+    .ps-dot {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-blue);
+    }
+    .ps-arrow {
+      font-size: 1.4rem;
+      color: var(--blue);
+      opacity: 0.5;
+      padding: 0 8px;
+    }
+    .ps-label { font-weight: 700; font-size: 1rem; }
+    .ps-desc { font-size: 0.82rem; color: var(--white-40); margin-top: 4px; }
+
+    @media (max-width: 900px) {
+      .fw-phase { grid-template-columns: 1fr; gap: 40px; }
+      .fw-phase.reverse { direction: ltr; }
+      .process-banner { padding: 40px 24px; }
+      .ps-item { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">OMNI<span>IA</span></span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Metodología</span>
+    <h1 class="anim-fade-up">Framework <span class="text-blue">OMNIA</span></h1>
+    <div class="divider center"></div>
+    <p class="anim-fade-up anim-delay-1" style="max-width:620px;margin:0 auto;font-size:1.1rem;">
+      Un proceso estructurado de cuatro fases diseñado para transformar la información de tu empresa en crecimiento sostenible.
+    </p>
+  </div>
+</section>
+
+<!-- PROCESO GENERAL -->
+<section style="background:var(--navy-light);">
+  <div class="container">
+    <div class="process-banner reveal">
+      <span class="section-label">El camino</span>
+      <h2>Diagnóstico → Implementación → Acompañamiento</h2>
+      <div class="process-steps-row">
+        <div class="ps-item">
+          <div class="ps-dot">🔍</div>
+          <div class="ps-label">Descubre</div>
+          <div class="ps-desc">Diagnóstico</div>
+        </div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-item">
+          <div class="ps-dot">🔗</div>
+          <div class="ps-label">Conecta</div>
+          <div class="ps-desc">Integración</div>
+        </div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-item">
+          <div class="ps-dot">⚡</div>
+          <div class="ps-label">Optimiza</div>
+          <div class="ps-desc">Implementación</div>
+        </div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-item">
+          <div class="ps-dot">🚀</div>
+          <div class="ps-label">Crece</div>
+          <div class="ps-desc">Acompañamiento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES DETALLE -->
+<section>
+  <div class="container">
+
+    <!-- Fase 1: Descubre -->
+    <div class="fw-phase reveal">
+      <div>
+        <span class="section-label">Fase 01</span>
+        <h2 style="margin-bottom:12px;"><span class="text-blue">Descubre</span></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:24px;">Analizamos el negocio en profundidad para identificar oportunidades de mejora, cuellos de botella y áreas de oportunidad.</p>
+        <ul class="fw-list">
+          <li>
+            <div class="fw-list-icon">📋</div>
+            <div><strong>Diagnóstico inicial</strong><p>Relevamiento completo del estado actual del negocio.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🎯</div>
+            <div><strong>Identificación de oportunidades</strong><p>Mapeamos puntos clave donde la inteligencia puede generar valor.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">📊</div>
+            <div><strong>Análisis de datos existentes</strong><p>Evaluamos la calidad y disponibilidad de la información del negocio.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="fw-card-wrap">
+        <div class="fw-visual-card">
+          <span class="fw-big-icon">🔍</span>
+          <h3>Descubre</h3>
+          <p style="margin-top:12px;font-size:0.9rem;">La inteligencia comienza con la capacidad de comprender lo que ocurre en tu empresa.</p>
+          <div class="fw-number">01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 2: Conecta -->
+    <div class="fw-phase reverse reveal">
+      <div>
+        <span class="section-label">Fase 02</span>
+        <h2 style="margin-bottom:12px;"><span class="text-blue">Conecta</span></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:24px;">Integramos información, herramientas y procesos para crear un ecosistema digital cohesionado y eficiente.</p>
+        <ul class="fw-list">
+          <li>
+            <div class="fw-list-icon">🔗</div>
+            <div><strong>Integración de sistemas</strong><p>Conectamos las herramientas existentes para eliminar silos de información.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🌐</div>
+            <div><strong>Centralización de datos</strong><p>Unificamos fuentes de información en un punto único de verdad.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🤝</div>
+            <div><strong>Alineación de procesos</strong><p>Armonizamos flujos de trabajo para mayor coherencia operativa.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="fw-card-wrap">
+        <div class="fw-visual-card">
+          <span class="fw-big-icon">🔗</span>
+          <h3>Conecta</h3>
+          <p style="margin-top:12px;font-size:0.9rem;">Integramos información, herramientas y procesos en un ecosistema digital coherente.</p>
+          <div class="fw-number">02</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 3: Optimiza -->
+    <div class="fw-phase reveal">
+      <div>
+        <span class="section-label">Fase 03</span>
+        <h2 style="margin-bottom:12px;"><span class="text-blue">Optimiza</span></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:24px;">Implementamos soluciones que generan mayor eficiencia y control, reduciendo tareas manuales y mejorando la toma de decisiones.</p>
+        <ul class="fw-list">
+          <li>
+            <div class="fw-list-icon">⚡</div>
+            <div><strong>Automatización de procesos</strong><p>Eliminamos tareas repetitivas para liberar tiempo estratégico.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">📈</div>
+            <div><strong>Dashboards e indicadores</strong><p>Visualización en tiempo real del desempeño del negocio.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🧠</div>
+            <div><strong>Reportes inteligentes</strong><p>Generación automática de informes accionables.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="fw-card-wrap">
+        <div class="fw-visual-card">
+          <span class="fw-big-icon">⚡</span>
+          <h3>Optimiza</h3>
+          <p style="margin-top:12px;font-size:0.9rem;">La eficiencia no consiste en trabajar más, sino en trabajar mejor.</p>
+          <div class="fw-number">03</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 4: Crece -->
+    <div class="fw-phase reverse reveal">
+      <div>
+        <span class="section-label">Fase 04</span>
+        <h2 style="margin-bottom:12px;"><span class="text-blue">Crece</span></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:24px;">Acompañamos la evolución del negocio mediante inteligencia aplicada, construyendo capacidades tecnológicas sostenibles.</p>
+        <ul class="fw-list">
+          <li>
+            <div class="fw-list-icon">🚀</div>
+            <div><strong>Soluciones a medida</strong><p>Tecnología personalizada según los objetivos de cada empresa.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🤖</div>
+            <div><strong>Inteligencia artificial aplicada</strong><p>IA integrada en los procesos clave del negocio.</p></div>
+          </li>
+          <li>
+            <div class="fw-list-icon">🌱</div>
+            <div><strong>Acompañamiento estratégico</strong><p>Seguimiento continuo para garantizar el crecimiento sostenible.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="fw-card-wrap">
+        <div class="fw-visual-card">
+          <span class="fw-big-icon">🚀</span>
+          <h3>Crece</h3>
+          <p style="margin-top:12px;font-size:0.9rem;">El crecimiento sostenible es el resultado de aplicar inteligencia con propósito.</p>
+          <div class="fw-number">04</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--navy-light);text-align:center;">
+  <div class="container">
+    <h2 class="reveal">¿Listo para aplicar el <span class="text-blue">Framework OMNIA</span>?</h2>
+    <div class="divider center"></div>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Elige el plan que mejor se adapta a tu etapa de crecimiento y comencemos juntos.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
+      <a href="planes.html" class="btn btn-primary" style="padding:16px 40px;">Ver planes</a>
+      <a href="contacto.html" class="btn btn-outline">Agendar diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">OMNI<span class="text-blue">IA</span></span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">OMNIA Discover</a></li>
+          <li><a href="optimize.html">OMNIA Optimize</a></li>
+          <li><a href="grow.html">OMNIA Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OMNIA IA. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

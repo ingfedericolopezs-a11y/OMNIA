@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMNIA Discover — OMNIA IA</title>
+  <meta name="description" content="OMNIA Discover: dashboards, indicadores estratégicos y reportes automáticos para decisiones basadas en datos." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .plan-detail-hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-detail-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 0%, rgba(41,182,246,0.12) 0%, transparent 65%);
+    }
+    .plan-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .plan-level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(41,182,246,0.10);
+      border: 1px solid rgba(41,182,246,0.25);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .plan-hero-price {
+      margin-top: 32px;
+      padding: 24px 28px;
+      background: var(--white-10);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: inline-block;
+      backdrop-filter: blur(8px);
+    }
+    .plan-hero-price .amount {
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .plan-hero-price .period { color: var(--blue); font-size: 0.9rem; font-weight: 600; margin-top: 4px; }
+
+    .plan-visual-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-visual-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .plan-big-icon { font-size: 5rem; display: block; margin-bottom: 20px; animation: float 5s ease-in-out infinite; }
+    .plan-visual-quote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--white-70);
+      line-height: 1.6;
+      margin-top: 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .detail-section { padding: 80px 0; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .detail-box {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .detail-box h3 { color: var(--blue); font-size: 1.3rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .detail-box h3 span { font-size: 1.4rem; }
+
+    .benefit-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .benefit-item:last-child { border-bottom: none; }
+    .benefit-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      border-radius: 10px;
+      background: var(--blue-glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .benefit-item strong { font-size: 0.95rem; color: var(--white); display: block; margin-bottom: 3px; }
+    .benefit-item p { font-size: 0.85rem; color: var(--white-70); margin: 0; }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--white-40);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { color: var(--white-40); }
+
+    .nav-plans {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .nav-plan-btn {
+      flex: 1;
+      min-width: 180px;
+      padding: 20px 24px;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--white);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-plan-btn:hover { border-color: rgba(41,182,246,0.4); transform: translateY(-3px); }
+    .nav-plan-btn .label { font-size: 0.75rem; color: var(--white-40); text-transform: uppercase; letter-spacing: 1px; }
+    .nav-plan-btn .name { font-weight: 700; color: var(--blue); }
+    .nav-plan-btn .arrow { font-size: 1.2rem; }
+
+    @media (max-width: 900px) {
+      .plan-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .plan-visual-card { display: none; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">OMNI<span>IA</span></span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="plan-detail-hero">
+  <div class="container">
+    <div class="breadcrumb anim-fade-in">
+      <a href="planes.html">Planes</a>
+      <span>›</span>
+      <span>OMNIA Discover</span>
+    </div>
+    <div class="plan-hero-grid">
+      <div class="anim-fade-up">
+        <div class="plan-level-badge">Nivel 01 · Plan Discover</div>
+        <h1>OMNIA <span class="text-blue">Discover</span></h1>
+        <p style="font-size:1.1rem;color:var(--white-70);margin-top:16px;max-width:480px;">
+          Claridad para entender tu negocio. El punto de partida para empresas que desean
+          tener una visión más clara de su operación y tomar decisiones basadas en información.
+        </p>
+        <div class="plan-hero-price">
+          <div class="amount">$1.490.000</div>
+          <div class="period">mensual*</div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contacto.html" class="btn btn-primary">Contratar plan</a>
+          <a href="planes.html" class="btn btn-ghost">Ver todos los planes</a>
+        </div>
+      </div>
+      <div class="anim-fade-in anim-delay-2">
+        <div class="plan-visual-card">
+          <span class="plan-big-icon">📊</span>
+          <h3 style="color:var(--white);">OMNIA <span class="text-blue">Discover</span></h3>
+          <p class="plan-visual-quote">
+            "La inteligencia comienza con la capacidad de comprender lo que ocurre en tu empresa."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESCRIPCIÓN -->
+<section style="background:var(--navy-light);">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;text-align:center;">
+      <span class="section-label">¿Qué es?</span>
+      <h2 class="reveal">Convierte datos en <span class="text-blue">decisiones</span></h2>
+      <div class="divider center"></div>
+      <p class="reveal" style="font-size:1.05rem;">
+        OMNIA Discover es el punto de partida para las empresas que desean tener una visión más clara de
+        su operación. A través de tableros de control, indicadores clave y reportes automáticos,
+        transformamos los datos del negocio en información comprensible y accionable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ALCANCE Y BENEFICIOS -->
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-grid">
+
+      <div class="detail-box reveal">
+        <h3><span>🎯</span> Alcance</h3>
+        <ul class="feature-list">
+          <li>Dashboards personalizados</li>
+          <li>Indicadores estratégicos</li>
+          <li>Reportes automáticos</li>
+          <li>Seguimiento del desempeño</li>
+          <li>Acompañamiento y soporte</li>
+        </ul>
+      </div>
+
+      <div class="detail-box reveal anim-delay-1">
+        <h3><span>✨</span> Beneficios</h3>
+        <div class="benefit-item">
+          <div class="benefit-icon">👁️</div>
+          <div>
+            <strong>Mayor visibilidad del negocio</strong>
+            <p>Entiende en tiempo real qué está pasando en cada área de tu empresa.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🧠</div>
+          <div>
+            <strong>Decisiones más informadas</strong>
+            <p>Reemplaza la intuición por datos concretos y confiables.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎛️</div>
+          <div>
+            <strong>Control sobre la operación</strong>
+            <p>Monitorea indicadores clave sin depender de reportes manuales.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔎</div>
+          <div>
+            <strong>Identificación de oportunidades</strong>
+            <p>Detecta áreas de mejora antes de que se conviertan en problemas.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section style="background:var(--navy-light);text-align:center;">
+  <div class="container" style="max-width:700px;">
+    <div class="reveal" style="padding:56px 0;">
+      <div style="font-size:4rem;margin-bottom:16px;">💡</div>
+      <p style="font-size:1.4rem;font-weight:600;color:var(--blue);line-height:1.6;">
+        "La inteligencia comienza con la capacidad de comprender lo que ocurre en tu empresa."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN PLANES -->
+<section>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <span class="section-label">Siguientes pasos</span>
+      <h2 class="reveal">¿Listo para <span class="text-blue">evolucionar</span>?</h2>
+      <div class="divider center"></div>
+      <p class="reveal" style="max-width:480px;margin:0 auto;">
+        Cuando estés listo para dar el siguiente paso, explora los planes superiores.
+      </p>
+    </div>
+    <div class="nav-plans reveal">
+      <a href="contacto.html" class="nav-plan-btn" style="border-color:rgba(41,182,246,0.4);background:rgba(41,182,246,0.05);">
+        <span class="label">Contratar</span>
+        <span class="name">OMNIA Discover</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="optimize.html" class="nav-plan-btn">
+        <span class="label">Siguiente nivel</span>
+        <span class="name">OMNIA Optimize</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="grow.html" class="nav-plan-btn">
+        <span class="label">Nivel avanzado</span>
+        <span class="name">OMNIA Grow</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">OMNI<span class="text-blue">IA</span></span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">OMNIA Discover</a></li>
+          <li><a href="optimize.html">OMNIA Optimize</a></li>
+          <li><a href="grow.html">OMNIA Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OMNIA IA. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — OMNIA IA</title>
+  <meta name="description" content="En OMNIA trabajamos como una extensión de tu equipo, integrando datos, procesos y tecnología." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-ring-wrap {
+      position: relative;
+      width: 340px;
+      height: 340px;
+    }
+    .about-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+    }
+    .about-ring-1 { inset: 0; animation: rotateSlow 25s linear infinite; border-color: rgba(41,182,246,0.22); }
+    .about-ring-2 { inset: 44px; animation: rotateSlow 18s linear infinite reverse; }
+    .about-ring-3 { inset: 88px; animation: rotateSlow 12s linear infinite; border-color: rgba(41,182,246,0.12); }
+    .about-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      top: 0; left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 14px var(--blue);
+    }
+    .about-center {
+      position: absolute;
+      inset: 110px;
+      background: radial-gradient(circle, rgba(41,182,246,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: float 5s ease-in-out infinite;
+    }
+    .about-center-text {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+    }
+    .about-center-text span { color: var(--blue); }
+
+    .belief-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    .belief-card:hover {
+      border-color: rgba(41,182,246,0.4);
+      transform: translateY(-4px);
+    }
+
+    .philosophy-block {
+      background: linear-gradient(135deg, var(--navy-card) 0%, rgba(17,32,64,0.8) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .philosophy-block::before {
+      content: '"';
+      position: absolute;
+      top: -20px; left: 40px;
+      font-size: 12rem;
+      color: rgba(41,182,246,0.08);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .philosophy-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      color: var(--blue);
+      position: relative;
+      z-index: 1;
+      line-height: 1.6;
+    }
+    .extension-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .extension-item {
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.3s;
+    }
+    .extension-item:hover {
+      border-color: rgba(41,182,246,0.4);
+      transform: translateY(-4px);
+    }
+    .extension-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+    .extension-item h4 { margin-bottom: 8px; }
+    .extension-item p { font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .about-split { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { display: none; }
+      .extension-grid { grid-template-columns: 1fr; }
+      .philosophy-block { padding: 40px 24px; }
+    }
+    @media (max-width: 640px) {
+      .extension-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">OMNI<span>IA</span></span>
+    </a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Quiénes somos</span>
+    <h1 class="anim-fade-up">Nosotros</h1>
+    <div class="divider center"></div>
+    <p class="anim-fade-up anim-delay-1" style="max-width:600px;margin:0 auto;font-size:1.1rem;">
+      Un acompañamiento diseñado para evolucionar junto a tu empresa.
+    </p>
+  </div>
+</section>
+
+<!-- MISIÓN -->
+<section>
+  <div class="container">
+    <div class="about-split">
+      <div>
+        <span class="section-label">Nuestra misión</span>
+        <h2 class="reveal">Construimos Claridad para <span class="text-blue">Impulsar el Crecimiento</span></h2>
+        <div class="divider"></div>
+        <p class="reveal" style="margin-bottom:20px;">
+          En OMNIA trabajamos como una extensión de tu equipo, integrando datos, procesos y tecnología
+          para transformar la información en decisiones más inteligentes.
+        </p>
+        <p class="reveal">
+          Aplicamos el Framework OMNIA para comprender las necesidades del negocio, identificar
+          oportunidades y construir soluciones alineadas con los objetivos de crecimiento de cada
+          organización.
+        </p>
+        <div class="reveal" style="margin-top:32px;">
+          <a href="framework.html" class="btn btn-primary">Conocer el Framework</a>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-ring-wrap">
+          <div class="about-ring about-ring-1"><div class="about-dot"></div></div>
+          <div class="about-ring about-ring-2"></div>
+          <div class="about-ring about-ring-3"></div>
+          <div class="about-center">
+            <div class="about-center-text">OMNI<span>IA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFÍA -->
+<section style="background:var(--navy-light);">
+  <div class="container">
+    <div class="philosophy-block reveal">
+      <p class="philosophy-text">
+        "En OMNIA creemos que la inteligencia empresarial no debería ser un privilegio exclusivo de
+        las grandes compañías. Acompañamos a las empresas en la construcción de capacidades que les
+        permitan operar con mayor claridad, eficiencia y visión de futuro."
+      </p>
+      <p style="margin-top:24px;color:var(--white-40);font-size:0.9rem;">
+        Porque crecer no consiste únicamente en hacer más, sino en tomar mejores decisiones.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO SOMOS EXTENSIÓN -->
+<section>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px;">
+      <span class="section-label">Lo que nos diferencia</span>
+      <h2 class="reveal">Somos una Extensión <span class="text-blue">de tu Equipo</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="extension-grid">
+      <div class="extension-item reveal">
+        <span class="extension-icon">📊</span>
+        <h4>Datos</h4>
+        <p>Centralizamos y estructuramos la información para que sea comprensible y accionable.</p>
+      </div>
+      <div class="extension-item reveal anim-delay-1">
+        <span class="extension-icon">⚡</span>
+        <h4>Procesos</h4>
+        <p>Automatizamos y optimizamos flujos de trabajo para liberar el potencial del equipo.</p>
+      </div>
+      <div class="extension-item reveal anim-delay-2">
+        <span class="extension-icon">🤖</span>
+        <h4>Tecnología</h4>
+        <p>Integramos herramientas e inteligencia artificial adaptadas a cada negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREENCIAS -->
+<section style="background:var(--navy-light);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px;">
+      <span class="section-label">Nuestra filosofía</span>
+      <h2 class="reveal">Lo que Creemos</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="grid-3">
+      <div class="belief-card reveal">
+        <div class="icon-box">💡</div>
+        <h4 style="margin-bottom:10px;">La claridad es poder</h4>
+        <p style="font-size:0.9rem;">Cuando entiendes tu negocio en profundidad, tomas decisiones con confianza y precisión.</p>
+      </div>
+      <div class="belief-card reveal anim-delay-1">
+        <div class="icon-box">🎯</div>
+        <h4 style="margin-bottom:10px;">Inteligencia con propósito</h4>
+        <p style="font-size:0.9rem;">La tecnología debe servir a los objetivos del negocio, no al revés.</p>
+      </div>
+      <div class="belief-card reveal anim-delay-2">
+        <div class="icon-box">🌱</div>
+        <h4 style="margin-bottom:10px;">Crecimiento sostenible</h4>
+        <p style="font-size:0.9rem;">El crecimiento sostenible es el resultado de aplicar inteligencia con propósito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;">
+  <div class="container">
+    <h2 class="reveal">¿Listo para tomar <span class="text-blue">mejores decisiones</span>?</h2>
+    <div class="divider center"></div>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Agenda un diagnóstico gratuito y descubre cómo OMNIA puede transformar tu negocio.</p>
+    <div class="reveal">
+      <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;font-size:1rem;">Agendar diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">OMNI<span class="text-blue">IA</span></span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">OMNIA Discover</a></li>
+          <li><a href="optimize.html">OMNIA Optimize</a></li>
+          <li><a href="grow.html">OMNIA Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OMNIA IA. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

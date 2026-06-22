@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — OMNIA IA</title>
+  <meta name="description" content="Agenda tu diagnóstico gratuito con OMNIA IA y comienza a transformar tu negocio." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── Form card ── */
+    .form-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .form-title { font-size: 1.5rem; margin-bottom: 8px; }
+    .form-subtitle { font-size: 0.9rem; color: var(--white-70); margin-bottom: 32px; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white-70);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--white-40); }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--blue);
+      background: rgba(41,182,246,0.05);
+    }
+    select option { background: var(--navy-card); color: var(--white); }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .form-check input[type="checkbox"] {
+      width: 18px; min-width: 18px; height: 18px;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+    .form-check label {
+      font-size: 0.82rem;
+      color: var(--white-70);
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success .success-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+    .form-success h3 { color: var(--blue); margin-bottom: 8px; }
+
+    /* ── Info panel ── */
+    .info-panel { display: flex; flex-direction: column; gap: 32px; }
+
+    .info-highlight {
+      background: linear-gradient(135deg, rgba(41,182,246,0.10) 0%, transparent 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .info-highlight h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .info-highlight p { font-size: 0.92rem; color: var(--white-70); }
+
+    .plan-quick-links { display: flex; flex-direction: column; gap: 12px; }
+    .plan-quick-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--white);
+      transition: all 0.2s;
+    }
+    .plan-quick-link:hover { border-color: rgba(41,182,246,0.4); transform: translateX(4px); }
+    .plan-quick-link-left { display: flex; align-items: center; gap: 14px; }
+    .plan-quick-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--blue-glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .plan-quick-name { font-weight: 700; font-size: 0.95rem; }
+    .plan-quick-price { font-size: 0.8rem; color: var(--blue); }
+    .plan-quick-arrow { color: var(--white-40); }
+
+    .process-steps-mini { display: flex; flex-direction: column; gap: 16px; }
+    .process-step-mini {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .step-num {
+      width: 32px; height: 32px; min-width: 32px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .process-step-mini strong { font-size: 0.9rem; display: block; margin-bottom: 2px; }
+    .process-step-mini p { font-size: 0.82rem; color: var(--white-70); margin: 0; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">OMNI<span>IA</span></span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Empecemos</span>
+    <h1 class="anim-fade-up">Agenda tu <span class="text-blue">Diagnóstico</span></h1>
+    <div class="divider center"></div>
+    <p class="anim-fade-up anim-delay-1" style="max-width:560px;margin:0 auto;font-size:1.05rem;">
+      El primer paso para transformar tu negocio es entender dónde estás hoy. Cuéntanos sobre tu empresa y te acompañamos desde ahí.
+    </p>
+  </div>
+</section>
+
+<!-- FORMULARIO + INFO -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORMULARIO -->
+      <div class="anim-fade-up">
+        <div class="form-card">
+          <h2 class="form-title">Contáctanos</h2>
+          <p class="form-subtitle">Completa el formulario y nos ponemos en contacto contigo en menos de 24 horas.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido *</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="correo@empresa.com" required />
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" />
+            </div>
+            <div class="form-group">
+              <label for="plan">¿Qué plan te interesa?</label>
+              <select id="plan" name="plan">
+                <option value="" disabled selected>Selecciona un plan</option>
+                <option value="discover">OMNIA Discover — $1.490.000/mes</option>
+                <option value="optimize">OMNIA Optimize — $2.490.000/mes</option>
+                <option value="grow">OMNIA Grow — Desde $3.990.000/mes</option>
+                <option value="no-se">Aún no sé, necesito asesoría</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">¿Cuál es el principal reto de tu negocio? *</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente qué desafíos enfrentas o qué quieres mejorar..." required></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="privacidad" name="privacidad" required />
+              <label for="privacidad">Acepto que OMNIA IA utilice mis datos para contactarme con información relevante sobre sus servicios.</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Enviar mensaje →</button>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <span class="success-icon">✅</span>
+            <h3>¡Mensaje enviado!</h3>
+            <p style="color:var(--white-70);">Nos pondremos en contacto contigo en menos de 24 horas. Mientras tanto, puedes explorar nuestros planes.</p>
+            <a href="planes.html" class="btn btn-outline" style="margin-top:20px;">Ver planes</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFO PANEL -->
+      <div class="info-panel anim-fade-up anim-delay-1">
+
+        <div class="info-highlight reveal">
+          <h3>¿Por qué agendar un diagnóstico?</h3>
+          <p>El diagnóstico es gratuito y sin compromiso. En una sesión de 45 minutos analizamos el estado actual de tu negocio e identificamos las oportunidades más relevantes para comenzar a aplicar inteligencia empresarial.</p>
+        </div>
+
+        <div class="reveal">
+          <span class="section-label" style="display:block;margin-bottom:16px;">¿Cómo funciona?</span>
+          <div class="process-steps-mini">
+            <div class="process-step-mini">
+              <div class="step-num">1</div>
+              <div>
+                <strong>Completa el formulario</strong>
+                <p>Cuéntanos sobre tu empresa y tus principales desafíos.</p>
+              </div>
+            </div>
+            <div class="process-step-mini">
+              <div class="step-num">2</div>
+              <div>
+                <strong>Te contactamos en 24h</strong>
+                <p>Agendamos una sesión de diagnóstico sin costo.</p>
+              </div>
+            </div>
+            <div class="process-step-mini">
+              <div class="step-num">3</div>
+              <div>
+                <strong>Diagnóstico inicial</strong>
+                <p>Analizamos tu operación e identificamos oportunidades clave.</p>
+              </div>
+            </div>
+            <div class="process-step-mini">
+              <div class="step-num">4</div>
+              <div>
+                <strong>Plan de acción</strong>
+                <p>Te presentamos el plan más adecuado para tu etapa de crecimiento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="section-label" style="display:block;margin-bottom:16px;">Nuestros planes</span>
+          <div class="plan-quick-links">
+            <a href="discover.html" class="plan-quick-link">
+              <div class="plan-quick-link-left">
+                <div class="plan-quick-icon">📊</div>
+                <div>
+                  <div class="plan-quick-name">OMNIA Discover</div>
+                  <div class="plan-quick-price">$1.490.000 / mes</div>
+                </div>
+              </div>
+              <span class="plan-quick-arrow">›</span>
+            </a>
+            <a href="optimize.html" class="plan-quick-link">
+              <div class="plan-quick-link-left">
+                <div class="plan-quick-icon">⚡</div>
+                <div>
+                  <div class="plan-quick-name">OMNIA Optimize</div>
+                  <div class="plan-quick-price">$2.490.000 / mes</div>
+                </div>
+              </div>
+              <span class="plan-quick-arrow">›</span>
+            </a>
+            <a href="grow.html" class="plan-quick-link">
+              <div class="plan-quick-link-left">
+                <div class="plan-quick-icon">🚀</div>
+                <div>
+                  <div class="plan-quick-name">OMNIA Grow</div>
+                  <div class="plan-quick-price">Desde $3.990.000 / mes</div>
+                </div>
+              </div>
+              <span class="plan-quick-arrow">›</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">OMNI<span class="text-blue">IA</span></span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">OMNIA Discover</a></li>
+          <li><a href="optimize.html">OMNIA Optimize</a></li>
+          <li><a href="grow.html">OMNIA Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OMNIA IA. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+</body>
+</html>
